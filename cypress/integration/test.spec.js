@@ -16,26 +16,24 @@ context('Todo List', () => {
         cy.contains('Add').click().then(() =>{
             cy.get('input').should('have.value', '')
             cy.get('ul').find('li').should('have.length', 1)
-
         });
         cy.get('input')
             .type('lorem ipsum2').should('have.value', 'lorem ipsum2')
         cy.contains('Add').click().then(() =>{
             cy.get('input').should('have.value', '')
-            cy.get('ul').find('li').should('have.length', 1)
+            cy.get('ul').find('li').should('have.length', 2)
 
         });
         cy.get('input')
             .type('lorem ipsum3').should('have.value', 'lorem ipsum3')
         cy.contains('Add').click().then(() =>{
             cy.get('input').should('have.value', '')
-            cy.get('ul').find('li').should('have.length', 2)});
+            cy.get('ul').find('li').should('have.length', 3)});
 
-            cy.get('li').find('button').click().then(() => {
-                cy.contains('2').find('li').should('have.length', 0)})
-
-                cy.contains('3').find('button').click().then(() => {
-                    cy.get('ul').find('li').should('have.length', 0)})
+            cy.get('li:first').find('button').click().then(() => {
+                cy.get('ul').find('li').should('have.length', 2)})
+            cy.get('li:first').find('button').click().then(() => {
+                cy.get('ul').find('li').should('have.length', 1)})
 
     });
 })

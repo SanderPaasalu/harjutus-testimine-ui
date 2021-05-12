@@ -18,9 +18,5 @@ context('Todo List', () => {
             })
         })
     });
-    it('School test', () => {
-        cy.get('input')
-            .type('Test1').should('have.value', 'lorem ipsum')
-    });
 })
   
